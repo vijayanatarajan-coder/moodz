@@ -6,7 +6,6 @@ const DisplayPlayList = () => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    // Fetch tracks from the API
     const fetchTracks = async () => {
       try {
         const response = await fetch(
@@ -16,7 +15,7 @@ const DisplayPlayList = () => {
           throw new Error("Failed to fetch data");
         }
         const data = await response.json();
-        setTracks(data.track || []); // Set tracks or empty array if none found
+        setTracks(data.track || []);
       } catch (err) {
         setError(err.message);
       } finally {
