@@ -1,0 +1,6 @@
+.nav {
+  font-size: var(--fs-200);
+  font-family: var(--ff-regular);
+  color: var(--clr-neutral-900);
+  text-decoration: none;
+}
