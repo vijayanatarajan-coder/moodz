@@ -1,6 +1,6 @@
 import React from "react";
 import "./Header.css";
-import logo from "/home/vijaya/moodz/src/Images/logo.png";
+import logo from "../../Images/logo.png";
 
 const Header = ({ title }) => {
   return (

@@ -15,3 +15,8 @@
   font-size: var(--fs-200);
   font-family: var(--ff-regular);
 }
+
+body {
+  background-color: black;
+  color:white;
+}
