@@ -8,7 +8,7 @@ const Nav = () => {
 
   const getClassName = (path) => {
     if (activeLink === path) {
-      return 'navItem active'
+      return 'navItem underline'
     } else {
       return 'navItem'
     }

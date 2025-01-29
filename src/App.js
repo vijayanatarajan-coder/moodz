@@ -13,10 +13,7 @@ import MyPlayLists from "./Pages/MyPlayList/MyPlayLists";
 const App = () => {
   return (
     <div id='root'>
-      <div className="header">
-        <Header title="MoodZ" />
-        <Nav className="nav" />
-      </div>
+        <Header />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/Discover" element={<Discover />} />
