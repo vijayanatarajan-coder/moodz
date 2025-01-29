@@ -1,10 +1,12 @@
 .primaryButton {
-  background-color: #ff007e;
-  color: white;
-  font-family: "Poppins", sans-serif;
-  padding: 10px 20px;
+  background-color: var(--clr-focus);
+  color: var(--clr-text);
+  font-family: var(--ff-regular);
+  font-size: var(--fs-200);
+  padding: 15px 50px;
   border-radius: 30px;
   text-transform: uppercase;
+  text-decoration: none;
   cursor: pointer;
   border: none;
 }

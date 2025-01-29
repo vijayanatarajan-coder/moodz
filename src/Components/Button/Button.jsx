@@ -1,11 +1,12 @@
 import React from "react";
 import "./Button.css";
+import { Link } from "react-router-dom";
 
-const Button = ({ text, onClick }) => {
+const Button = ({ text,...props }) => {
   return (
-    <button className="primaryButton" onClick={onClick}>
+    <Link className="primaryButton" {...props}>
       {text}
-    </button>
+    </Link>
   );
 }
 
