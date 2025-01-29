@@ -1,1 +1,17 @@
 
+.Footer {
+    background-color: var(--clr-neutral-100);
+    color: var(--clr-neutral-900);
+    font-size: var(--fs-200);
+    font-family: var(--ff-regular);
+    border-top: 2px solid var(--clr-border);
+  } 
+ 
+  #copyrightContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    left: 0;
+    right: 0;
+  }

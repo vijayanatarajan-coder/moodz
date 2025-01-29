@@ -22,11 +22,8 @@ const App = () => {
         <Route path="/Discover" element={<Discover />} />
         <Route path="/MyPlayLists" element={<MyPlayLists />} />
         <Route path="*" element={<Missing />} />
-      </Routes>
-      <div className="Footer">
-        <Header title="MoodZ" />
-        <Footer />
-      </div>
+      </Routes>      
+      <Footer />
     </div>
   );
 };
