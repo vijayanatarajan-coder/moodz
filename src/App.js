@@ -12,7 +12,7 @@ import MyPlayLists from "./Pages/MyPlayList/MyPlayLists";
 
 const App = () => {
   return (
-    <div>
+    <div id='root'>
       <div className="header">
         <Header title="MoodZ" />
         <Nav className="nav" />

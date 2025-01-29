@@ -1,6 +1,18 @@
 .nav {
-  font-size: var(--fs-200);
-  font-family: var(--ff-regular);
-  color: var(--clr-neutral-900);
+  column-gap: 50px;
+  display: flex;
+}
+
+.navItem {
+  text-transform: uppercase;
   text-decoration: none;
+  color: white;
+  font-family: var(--ff-regular);
+  font-size:var(--fs-200);
+  font-weight: 300;
+  letter-spacing: 1%;
+}
+
+.active {
+  text-decoration: underline !important;
 }
