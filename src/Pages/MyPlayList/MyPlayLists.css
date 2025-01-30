@@ -1,0 +1,59 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+@import "../../Styles/DesignStyles.css";
+
+body {
+  font-family: "Poppins", sans-serif;
+  font-weight: var(--fw-regular);
+  background-color: #000000;
+}
+
+.page-heading-container-myplaylist {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.5rem;
+  background-color: var(--clr-neutral-100);
+}
+
+.page-heading-myplaylist-title {
+  font-size: var(--fs-600);
+  font-weight: var(--fw-h1-h2);
+  margin-bottom: 0.5rem;
+  font-family: var(--ff-regular);
+  color: var(--clr-neutral-200);
+}
+
+.page-heading-myplaylist-paragraph {
+  font-family: var(--ff-regular);
+  font-size: var(--fs-400);
+  margin-bottom: 1rem;
+  padding-bottom: 1.5rem;
+  color: var(--clr-neutral-900);
+  font-weight: var(--fw-regular);
+  text-align: center;
+  width: 48%;
+}
+
+.page-heading-divider-myplaylist {
+  border-top: 1px solid var(--clr-neutral-300);
+  width: 50%;
+  margin: 0 auto;
+  margin-bottom: 1.5rem;
+}
+
+.searchSection2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.searchInput2 {
+  background-color: #ffffff;
+  color: #000000;
+  margin: 2rem;
+  width: 48%;
+  height: 2rem;
+  border: none;
+  border-radius: 30px;
+  position: relative;
+}
