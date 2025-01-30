@@ -1,0 +1,16 @@
+.description {
+    color: var(--clr-text);
+    font-family: var(--ff-regular);
+    font-size: var(--fs-400);
+    font-style: normal;
+    font-weight: var(--fw-regular);
+    line-height: normal;
+}
+.h2 {
+    font-size: var(--fs-500);
+    font-weight: var(--fw-h1-h2);
+    line-height: 1.4;
+    margin-bottom: 1rem;
+    color:var(--clr-text);
+    font-family: var(--ff-regular);
+}
