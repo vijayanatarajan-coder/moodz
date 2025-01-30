@@ -1,6 +1,7 @@
 import React from "react";
 import "./PageHeading.css";
 import "../../Styles/DesignStyles.css";
+import { Link } from "react-router-dom";
 
 const PageHeading = ({ title, paragraph, link }) => {
   const [firstPart, secondPart] = paragraph.split("!");
@@ -12,9 +13,9 @@ const PageHeading = ({ title, paragraph, link }) => {
         {firstPart}!
         <br />
         {secondPart}{" "}
-        <a href={link} className="page-heading-link">
+        <Link to="/MyPlayLists" className="page-heading-link">
           here
-        </a>
+        </Link>
       </p>
       <hr className="page-heading-divider" />
     </div>
