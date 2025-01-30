@@ -55,4 +55,8 @@
         flex-direction: column;
         gap: 20px;
     }
+    .homeContainer {
+        padding-left: 5%;
+        padding-right: 5%;
+    }
 }

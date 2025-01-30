@@ -12,7 +12,7 @@ const Mood = () => {
                 <img src={working} alt="" width={"250px"} height={"250px"} />
             </div>
             {/* Section 3 */}
-            <div className="homeSection alignCenter">
+            <div className="homeSection alignCenter reverseInMobile">
                 <img src={passenger} alt="" width={"250px"} height={"250px"} />
                 <h2 className="h2 centerText">...or when you are <br /><span className="focus">on the go...</span></h2>
             </div>
