@@ -26,7 +26,7 @@ const EditPlaylist = ({ initialText, onUpdate, onDelete }) => {
           <i className="edit-name" onClick={toggleEdit}></i>
         </>
       )}
-      <button onClick={onDelete} className="delete">
+      <button onClick={(index) => onDelete(index)} className="delete">
         <img src={require("../../Images/pink bin.png")} alt="trash bin" />
       </button>
     </li>
