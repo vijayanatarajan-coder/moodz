@@ -1,12 +1,13 @@
 import React from "react";
 import "./Header.css";
-import logo from "/home/vijaya/moodz/src/Images/logo.png";
+import Logo from "../Logo/Logo";
+import Nav from "../Nav/Nav";
 
 const Header = ({ title }) => {
   return (
     <header className="header">
-      <img src={logo} alt="Logo" className="logo" />
-      <h1>{title}</h1>
+      <Logo />
+      <Nav className="nav" />
     </header>
   );
 };

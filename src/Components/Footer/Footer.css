@@ -1,1 +1,37 @@
 
+.Footer {
+    display: flex;
+    background-color: var(--clr-neutral-100);
+    color: var(--clr-neutral-900);
+    font-size: var(--fs-200);
+    font-family: var(--ff-regular);
+    border-top: 2px solid var(--clr-border);
+  } 
+ 
+  #copyrightContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin-top:20px;
+  }
+
+  @media (max-width: 768px) {
+    .Footer {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    #copyrightContainer {
+      margin-top: 0;
+      display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    position: inherit;
+    margin-bottom: 3%;
+    }
+  }
