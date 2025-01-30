@@ -22,6 +22,7 @@ function SearchBar() {
       if (data.track) {
         setResults(
           data.track.map((item) => ({
+            trackImg: item.strTrackThumb,
             trackName: item.strTrack,
             artistName: item.strArtist,
           }))
@@ -68,7 +69,10 @@ function SearchBar() {
       <div className="search-results">
         {results.map((result, index) => (
           <div key={index} className="search-items">
-            {/* INSERT MOODZ LOGO */}
+            <img
+              src={result.trackImg}
+              style={{ width: "70px", height: "70px" }}
+            />
             <h4 className="trackItem">
               {result.trackName} <button>+</button>
             </h4>
