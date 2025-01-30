@@ -1,0 +1,14 @@
+.h1 {
+    font-size: var(--fs-600);
+    font-weight: var(--fw-h1-h2);
+    line-height: 1.2;
+    margin-bottom: 1rem;
+    color:var(--clr-h1);
+    font-family: var(--ff-regular);
+}
+
+#homeSection1-content {
+    padding-top: 10%;
+    padding-bottom: 10%;
+    row-gap: 10%;
+}
