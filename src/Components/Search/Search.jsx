@@ -69,7 +69,9 @@ function SearchBar() {
         {results.map((result, index) => (
           <div key={index} className="search-items">
             {/* INSERT MOODZ LOGO */}
-            <h4 className="trackItem">{result.trackName}</h4>
+            <h4 className="trackItem">
+              {result.trackName} <button>+</button>
+            </h4>
             <p className="artistItem">{result.artistName}</p>
           </div>
         ))}
