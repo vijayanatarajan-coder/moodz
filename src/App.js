@@ -12,21 +12,15 @@ import MyPlayLists from "./Pages/MyPlayList/MyPlayLists";
 
 const App = () => {
   return (
-    <div>
-      <div className="header">
-        <Header title="MoodZ" />
-        <Nav className="nav" />
-      </div>
+    <div id='root'>
+        <Header />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/Discover" element={<Discover />} />
         <Route path="/MyPlayLists" element={<MyPlayLists />} />
         <Route path="*" element={<Missing />} />
-      </Routes>
-      <div className="Footer">
-        <Header title="MoodZ" />
-        <Footer />
-      </div>
+      </Routes>      
+      <Footer />
     </div>
   );
 };

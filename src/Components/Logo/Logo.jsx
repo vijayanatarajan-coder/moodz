@@ -1,5 +1,5 @@
 import React from "react";
-import logo from "/home/vijaya/moodz/src/Images/logo.png";
+import logo from "../../Images/logo.svg";
 
 const Logo = () => {
   return (

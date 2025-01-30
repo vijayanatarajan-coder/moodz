@@ -1,0 +1,22 @@
+.playlist-button {
+  background-color: var(--clr-pink);
+  color: var(--clr-neutral-900);
+  font-size: var(--fs-100);
+  font-family: var(--fw-regular);
+  font-weight: var(--fw-regular-weight);
+  border: none;
+  padding: 10px;
+  margin: 20px 0px 20px 0px;
+  border-radius: 30px;
+  cursor: pointer;
+}
+@media (min-width: 600px) {
+  .playlist-button {
+    font-size: var(--fs-200);
+  }
+}
+@media (min-width: 1025px) {
+  .playlist-button {
+    margin: 0px;
+  }
+}
