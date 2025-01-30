@@ -5,12 +5,13 @@ import PlaylistPopup from "../PlaylistPopup/PlaylistPopup";
 import onTheGoImg from "../../Images/bus-stop.png";
 import workoutImg from "../../Images/dumbbell.png";
 import relaxImg from "../../Images/coconut-tree.png";
+import partyImg from "../../Images/dance.png";
 
 const playlists = [
   { name: "ON THE GO", image: onTheGoImg },
   { name: "WORKOUT", image: workoutImg },
   { name: "RELAX", image: relaxImg },
-  { name: "PARTY", image: relaxImg },
+  { name: "PARTY", image: partyImg },
 ];
 
 const DisplayPlayList = () => {
