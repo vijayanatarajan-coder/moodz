@@ -2,7 +2,7 @@ import React from "react";
 import "./MyPlayLists.css";
 
 const MyPlayLists = () => {
-  return <main>MyPlayLists</main>;
+  return <main></main>;
 };
 
 export default MyPlayLists;
