@@ -1,0 +1,138 @@
+@import "../../Styles/DesignStyles.css";
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+
+body {
+  font-family: var(--ff-regular);
+  font-weight: var(--fw-regular);
+  background-color: var(--clr-neutral-100);
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background-color: var(--clr-neutral-100);
+  padding: 30px;
+  border-radius: 30px;
+  border: 3px solid var(--clr-pink);
+  width: 280px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.app.blurred {
+  filter: blur(5px);
+}
+
+.new-playlist {
+  align-self: center;
+}
+
+hr {
+  display: block;
+  width: 100%;
+  border-top: 2px solid var(--clr-neutral-300);
+}
+
+p {
+  color: var(--clr-neutral-900);
+  margin: 0;
+}
+
+button {
+  background-color: var(--clr-pink);
+  color: var(--clr-neutral-900);
+  border: none;
+  border-radius: 30px;
+  padding: 10px;
+  width: 150px;
+  align-self: center;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+label {
+  color: var(--clr-neutral-900);
+  /* padding-bottom: 20px; */
+}
+
+input,
+input:focus {
+  background-color: rgba(211, 211, 211, 0.3);
+  color: var(--clr-neutral-900);
+  border: none;
+  outline: none;
+  padding: 5px;
+}
+
+.playlist-placeholder {
+  font-size: var(--fs-200);
+  text-align: center;
+}
+
+input[type="radio"] {
+  accent-color: var(--clr-pink);
+  margin-right: 12px;
+}
+
+input[type="text"] {
+  align-self: center;
+}
+
+::placeholder {
+  color: var(--clr-neutral-900);
+}
+
+li {
+  padding-left: 10px;
+  color: var(--clr-neutral-900);
+  font-size: var(--fs-400);
+  display: flex;
+  align-items: center;
+}
+
+li::before {
+  content: "";
+  display: inline-block;
+  width: 2em;
+  height: 2em;
+  background-image: url("../../Images/logo.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin-right: 2rem;
+}
+
+.edit-name {
+  display: inline-block;
+  width: 1.5rem;
+  height: 1.5rem;
+  background-size: contain;
+  margin-left: 1rem;
+  background-image: url("../../Images/pen 1.png");
+  cursor: pointer;
+}
+
+.playlist-name {
+  font-size: var(--fs-400);
+  text-align: left;
+}
+
+.delete-playlist {
+  display: inline-block;
+  width: 1.5rem;
+  height: 1.5rem;
+  background-size: contain;
+  margin-left: 2rem;
+  background-image: url("../../Images/pink bin.png");
+  cursor: pointer;
+}
