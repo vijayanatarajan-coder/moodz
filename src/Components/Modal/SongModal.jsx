@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
-import ModalExistingPlaylist from "./ModalDOM";
-import EditablePlaylist from "../EditPlaylist/EditPlaylist";
+import React, { useState, useEffect, useCallback } from "react";
+import ModalDOM from "./ModalDOM";
+import EditPlaylist from "../EditPlaylist/EditPlaylist";
 import "./SongModal.css";
 
 const SongModal = () => {
@@ -15,23 +15,33 @@ const SongModal = () => {
     setExistingPlaylists(storedPlaylists);
   }, []);
 
+  useEffect(() => {
+    localStorage.setItem(
+      "existingPlaylists",
+      JSON.stringify(existingPlaylists)
+    );
+  }, [existingPlaylists]);
+
   const openModal = () => {
     setIsModalOpen(true);
   };
 
-  const closeModal = () => {
+  const closeModal = useCallback(() => {
     setIsModalOpen(false);
     setNewPlaylistInput(false);
     if (inputValue.trim() !== "") {
-      const updatedPlaylists = [...existingPlaylists, inputValue];
-      setExistingPlaylists(updatedPlaylists);
-      localStorage.setItem(
-        "existingPlaylists",
-        JSON.stringify(updatedPlaylists)
-      );
+      setExistingPlaylists((prev) => {
+        const updatedPlaylists = [...prev, inputValue];
+
+        localStorage.setItem(
+          "existingPlaylists",
+          JSON.stringify(updatedPlaylists)
+        );
+        return updatedPlaylists;
+      });
     }
     setInputValue("");
-  };
+  }, [inputValue]);
 
   const toggleNewPlaylistInput = () => {
     setNewPlaylistInput(!newPlaylistInput);
@@ -41,22 +51,27 @@ const SongModal = () => {
     setInputValue(e.target.value);
   };
 
-  const updatePlaylist = (index, newText) => {
-    const updatedPlaylists = [...existingPlaylists];
-    updatedPlaylists[index] = newText;
-    setExistingPlaylists(updatedPlaylists);
-  };
+  const updatePlaylist = useCallback((index, newText) => {
+    setExistingPlaylists((prev) => {
+      const updatedPlaylists = prev.map((item, i) =>
+        i === index ? newText : item
+      );
+      localStorage.setItem(
+        "existingPlaylists",
+        JSON.stringify(updatedPlaylists)
+      );
+      return updatedPlaylists;
+    });
+  }, []);
 
-  const deletePlaylist = (index) => {
-    const updatedPlaylists = existingPlaylists.filter((_, i) => i !== index);
-    setExistingPlaylists(updatedPlaylists);
-    localStorage.setItem("existingPlaylists", JSON.stringify(updatedPlaylists));
-  };
+  const deletePlaylist = useCallback((index) => {
+    setExistingPlaylists((prev) => prev.filter((_, i) => i !== index));
+  }, []);
 
   return (
     <div className={`app ${isModalOpen ? "blurred" : ""}`}>
       <button onClick={openModal}>+</button>
-      <ModalExistingPlaylist isOpen={isModalOpen} onClose={closeModal}>
+      <ModalDOM isOpen={isModalOpen} onClose={closeModal}>
         <p>Add to existing playlist</p>
         <hr />
         {existingPlaylists.map((playlist, index) => (
@@ -75,33 +90,23 @@ const SongModal = () => {
           <div className="new-playlist">
             <input
               type="text"
+              className="playlist-placeholder"
               placeholder="What's your mood?"
               value={inputValue}
               onChange={handleInputChange}
             />
           </div>
         )}
-      </ModalExistingPlaylist>
+      </ModalDOM>
       <div>
         <ul>
           {existingPlaylists.map((playlist, index) => (
-            <EditablePlaylist
-              key={index}
-              index={index}
+            <EditPlaylist
+              key={`${playlist}-${index}`}
               initialText={playlist}
               onUpdate={(newText) => updatePlaylist(index, newText)}
               onDelete={() => deletePlaylist(index)}
             />
-            // <li key={index}>
-            //   {playlist}
-            //   <i className="edit-name"></i>
-            //   <button onClick={() => deletePlaylist(index)} className="delete">
-            //     <img
-            //       src={require("../../Images/pink bin.png")}
-            //       alt="trash bin"
-            //     />
-            //   </button>
-            // </li>
           ))}
         </ul>
       </div>

@@ -16,6 +16,7 @@ const EditPlaylist = ({ initialText, onUpdate, onDelete }) => {
       {isEditing ? (
         <input
           type="text"
+          className="playlist-name"
           value={itemText}
           onChange={(e) => setItemText(e.target.value)}
           onBlur={toggleEdit}
@@ -26,9 +27,7 @@ const EditPlaylist = ({ initialText, onUpdate, onDelete }) => {
           <i className="edit-name" onClick={toggleEdit}></i>
         </>
       )}
-      <button onClick={(index) => onDelete(index)} className="delete">
-        <img src={require("../../Images/pink bin.png")} alt="trash bin" />
-      </button>
+      <i className="delete-playlist" onClick={onDelete}></i>
     </li>
   );
 };
