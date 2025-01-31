@@ -25,6 +25,15 @@ body {
   position: relative;
 }
 
+.search-input:focus,
+.search-input::placeholder {
+  padding-left: 20px;
+}
+
+.search-input:focus::placeholder {
+  color: transparent;
+}
+
 .search-results {
   background-color: #ffffff;
   color: #000000;

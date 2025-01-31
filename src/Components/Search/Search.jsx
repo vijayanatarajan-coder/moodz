@@ -56,12 +56,16 @@ function SearchBar() {
     }
   };
 
+  const handleClick = (e) => {
+    // onClick = INSERT MODAL FROM SERGIO
+  };
+
   return (
     <div className="search-section">
       <input
         className="search-input"
         type="text"
-        placeholder="    Search"
+        placeholder="Search: artist - song"
         onChange={handleChange}
         onKeyDown={handleKeyDown}
         value={searchInput}
@@ -71,10 +75,16 @@ function SearchBar() {
           <div key={index} className="search-items">
             <img
               src={result.trackImg}
-              style={{ width: "70px", height: "70px" }}
+              style={{ width: "70px", height: "70px", margin: "4px" }}
             />
             <h4 className="trackItem">
-              {result.trackName} <button>+</button>
+              {result.trackName}{" "}
+              <img
+                src="/Plus.png"
+                alt="add to playlist"
+                onClick={() => handleClick()}
+                style={{ cursor: "pointer" }}
+              />
             </h4>
             <p className="artistItem">{result.artistName}</p>
           </div>
