@@ -22,7 +22,20 @@ export function SearchProvider({ children }) {
       ...prevPlaylists,
       [playlistName]: [...(prevPlaylists[playlistName] || []), song],
     }));
+    setExistingPlaylists((prevPlaylists) => {
+      if (!prevPlaylists.includes(playlistName)) {
+        return [...prevPlaylists, playlistName];
+      }
+      return prevPlaylists;
+    });
   }, []); //NEW
+
+  const getPlaylistSongs = useCallback(
+    (playlistName) => {
+      return playlists[playlistName] || [];
+    },
+    [playlists]
+  );
 
   useEffect(() => {
     const storedPlaylists =
@@ -127,6 +140,7 @@ export function SearchProvider({ children }) {
         addNewPlaylist,
         addSongToPlaylist, //NEW
         playlists, //NEW
+        getPlaylistSongs,
       }}
     >
       {children}

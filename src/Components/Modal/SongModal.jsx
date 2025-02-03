@@ -178,6 +178,7 @@ function SongModal() {
               id={`playlist-${index}`}
               name="playlistOption"
               value={playlist}
+              onChange={() => setSelectedPlaylist(playlist)}
             />
             <label htmlFor={`playlist-${index}`}>{playlist}</label>
           </div>
@@ -192,6 +193,7 @@ function SongModal() {
               value={inputValue}
               onChange={handleInputChange}
             />
+            <button onClick={handleSaveToPlaylist}>Save to Playlist</button>
           </div>
         )}
       </ModalDOM>
