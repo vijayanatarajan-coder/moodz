@@ -67,7 +67,7 @@ label {
 }
 
 input,
-input:focus {
+.playlist-placeholder:focus {
   background-color: rgba(211, 211, 211, 0.3);
   color: var(--clr-neutral-900);
   border: none;

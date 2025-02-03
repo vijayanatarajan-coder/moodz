@@ -31,12 +31,12 @@ body {
   color: var(--clr-neutral-900);
   font-weight: var(--fw-regular);
   text-align: center;
-  width: 48%;
+  width: 60%;
 }
 
 .page-heading-divider-myplaylist {
   border-top: 1px solid var(--clr-neutral-300);
-  width: 50%;
+  width: 60%;
   margin: 0 auto;
   margin-bottom: 1.5rem;
 }

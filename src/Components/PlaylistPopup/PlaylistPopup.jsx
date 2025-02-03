@@ -8,12 +8,12 @@ const PlaylistPopup = ({ playlist, onClose }) => {
     <div className="album-container">
       <div className="album-header">
         <h2>Focus</h2>
-        <RxCross1
+        {/* <RxCross1
           className="close-popup"
           role="button"
           tabIndex="0"
           onClick={onClose}
-        />
+        /> */}
       </div>
       <hr />
       <AlbumList playlist={playlist} /> {/* Use AlbumList */}
