@@ -1,14 +1,18 @@
 import "./Search.css";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useSearch } from "./SearchContext";
 
 function SearchBar() {
   const { searchInput, setSearchInput, results, fetchData, openModal } =
     useSearch();
+  const [isResultVisible, setIsResultVisible] = useState(false);
 
   useEffect(() => {
     if (searchInput) {
       fetchData();
+      setIsResultVisible(true);
+    } else {
+      setIsResultVisible(false);
     }
   }, [searchInput, fetchData]);
 
@@ -26,7 +30,11 @@ function SearchBar() {
         onChange={handleChange}
         value={searchInput}
       />
-      <div className="search-results">
+      <div
+        className={
+          isResultVisible ? "search-results-visible" : "search-results-hidden"
+        }
+      >
         {results.map((result, index) => (
           <div key={index} className="search-items">
             <img

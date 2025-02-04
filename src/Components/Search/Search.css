@@ -41,7 +41,12 @@ body {
   color: transparent;
 }
 
-.search-results {
+.search-results-hidden {
+  display: none;
+}
+
+.search-results-visible {
+  display: block;
   background-color: white;
   color: #000000;
   margin: 2rem;
