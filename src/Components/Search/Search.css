@@ -30,6 +30,7 @@ body {
   background-image: url("../../Images/search\ 1.png");
   background-repeat: no-repeat;
   background-position: 2%;
+  padding-left: 50px;
 }
 
 .search-input:focus,
@@ -67,21 +68,18 @@ body {
   margin-right: 1.5rem;
 }
 
-/* .albumImg {
-} */
+.artistItem {
+  color: #000000;
+  margin-top: 1.5rem;
+  margin-left: 0.3rem;
+  font-size: 1rem;
+  font-weight: bold;
+}
 
 .trackItem {
   color: #000000;
   margin-top: 1.5rem;
   margin-left: 0.5rem;
-  font-weight: bold;
-  font-size: 1rem;
-}
-
-.artistItem {
-  color: #000000;
-  margin-top: 1.5rem;
-  margin-left: 0.3rem;
   font-size: 1rem;
 }
 

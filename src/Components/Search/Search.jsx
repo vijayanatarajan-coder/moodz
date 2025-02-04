@@ -1,22 +1,30 @@
 import "./Search.css";
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useSearch } from "./SearchContext";
 
 function SearchBar() {
-  const { searchInput, setSearchInput, results, fetchData, openModal } =
-    useSearch();
-  const [isResultVisible, setIsResultVisible] = useState(false);
+  const {
+    searchInput,
+    setSearchInput,
+    results,
+    fetchData,
+    openModal,
+    isResultVisible,
+    setIsResultVisible,
+  } = useSearch(); //NEW
 
   useEffect(() => {
+    // FETCH DATA
     if (searchInput) {
       fetchData();
-      setIsResultVisible(true);
+      setIsResultVisible(true); // DISPLAY RESULTS WHEN ACTIVE
     } else {
-      setIsResultVisible(false);
+      setIsResultVisible(false); // HIDE RESULTS
     }
-  }, [searchInput, fetchData]);
+  }, [searchInput, fetchData, setIsResultVisible]); //NEW
 
   const handleChange = (e) => {
+    // HANDLE SEARCH INPUT
     setSearchInput(e.target.value);
   };
 
@@ -35,6 +43,7 @@ function SearchBar() {
           isResultVisible ? "search-results-visible" : "search-results-hidden"
         }
       >
+        {/* DISPLAY: ALBUM COVER, SONG & ARTIST */}
         {results.map((result, index) => (
           <div key={index} className="search-items">
             <img
@@ -43,8 +52,9 @@ function SearchBar() {
               style={{ width: "60px", height: "60px", margin: "4px" }}
               alt="Album cover"
             />
-            <p className="trackItem">{result.trackName} - </p>
-            <p className="artistItem">{result.artistName}</p>
+            <p className="artistItem">{result.artistName} - </p>
+            <p className="trackItem">{result.trackName}</p>
+            {/* ADD SONG & OPEN MODAL */}
             <i
               key={index}
               role="button"

@@ -14,7 +14,8 @@ export function SearchProvider({ children }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedSong, setSelectedSong] = useState(null);
   const [existingPlaylists, setExistingPlaylists] = useState([]);
-  const [playlists, setPlaylists] = useState({}); //NEW
+  const [playlists, setPlaylists] = useState({});
+  const [isResultVisible, setIsResultVisible] = useState(false);
   const API_KEY = 523532;
 
   const addSongToPlaylist = useCallback((playlistName, song) => {
@@ -28,7 +29,7 @@ export function SearchProvider({ children }) {
       }
       return prevPlaylists;
     });
-  }, []); //NEW
+  }, []);
 
   const getPlaylistSongs = useCallback(
     (playlistName) => {
@@ -97,6 +98,10 @@ export function SearchProvider({ children }) {
     setSelectedSong(null);
   }, []);
 
+  const hideSearchResults = () => {
+    setIsResultVisible(false); // HIDE SEARCH RESULTS WHEN MODAL CLOSE
+  };
+
   const updatePlaylist = useCallback((index, newText) => {
     setExistingPlaylists((prev) => {
       const updatedPlaylists = prev.map((item, i) =>
@@ -147,10 +152,13 @@ export function SearchProvider({ children }) {
         updatePlaylist,
         deletePlaylist,
         addNewPlaylist,
-        addSongToPlaylist, //NEW
-        playlists, //NEW
+        addSongToPlaylist,
+        playlists,
         getPlaylistSongs,
         removeSongFromPlaylist,
+        isResultVisible,
+        setIsResultVisible,
+        hideSearchResults,
       }}
     >
       {children}
