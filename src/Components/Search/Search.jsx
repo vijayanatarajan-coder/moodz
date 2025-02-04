@@ -131,6 +131,7 @@ function SearchBar() {
             <img
               src={result.trackImg}
               style={{ width: "70px", height: "70px", margin: "4px" }}
+              alt="Album cover"
             />
             <h4 className="trackItem">{result.trackName} </h4>
             <p className="artistItem">{result.artistName}</p>

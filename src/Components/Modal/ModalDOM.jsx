@@ -9,7 +9,6 @@ const ModalDOM = ({ isOpen, onClose, children }) => {
     <div className="modal-overlay" onClick={onClose}>
       <div className="modal-content" onClick={(e) => e.stopPropagation()}>
         {children}
-        <button onClick={onClose}>DONE</button>
       </div>
     </div>,
     document.body
