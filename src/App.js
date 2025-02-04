@@ -1,6 +1,7 @@
 import React from "react";
 import "./Styles/DesignStyles.css";
 import "./App.css";
+import "./Styles/Reset.css";
 import Missing from "./Components/Healper/Missing";
 import { Routes, Route } from "react-router-dom";
 import Header from "./Components/Header/Header";

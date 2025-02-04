@@ -4,13 +4,16 @@ import SeePlayListButton from "../SeePlayListButton/SeePlayListButton";
 
 const PlaylistCardFront = ({ title, image, onButtonClick }) => {
   return (
-    <div className="playlist-card">
+    <section className="playlist-card" aria-labelledby="playlist-title">
       <h2>{title}</h2>
       <div className="image">
         <img src={image} alt={title} />
       </div>
-      <SeePlayListButton onClick={onButtonClick} />
-    </div>
+      <SeePlayListButton
+        onClick={onButtonClick}
+        aria-label={`See playlist titled ${title}`}
+      />
+    </section>
   );
 };
 

@@ -1,0 +1,49 @@
+.loading-container,
+.error-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+
+.loading-container p,
+.error-container p {
+  font-size: var(--fs-200);
+  text-align: center;
+}
+.album-card li {
+  display: flex;
+  align-items: center;
+  padding-left: 15px;
+}
+
+.album-img {
+  width: 50px;
+  height: 50px;
+  margin-right: 10px;
+}
+
+.album-artist {
+  padding: 10px;
+}
+.album-list ul {
+  margin: 0px;
+  padding: 0px;
+}
+.album-artist h2 {
+  margin: 0;
+  padding: 5px;
+  font-size: var(--fs-200);
+}
+
+.album-artist p {
+  margin: 0;
+  padding: 5px;
+  font-size: var(--fs-100);
+}
+li.album-card::before {
+  background-image: none;
+  width: 0px;
+  margin-right: 0px;
+}
