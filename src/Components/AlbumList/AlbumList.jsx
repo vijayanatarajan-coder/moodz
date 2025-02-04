@@ -25,7 +25,7 @@ const AlbumList = ({ playlist }) => {
     };
 
     fetchAlbums();
-  }, [playlist]);
+  }, []);
 
   if (loading) {
     return (
