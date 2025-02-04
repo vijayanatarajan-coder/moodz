@@ -30,8 +30,8 @@ body {
   gap: 10px;
 }
 
-.app.blurred {
-  filter: blur(5px);
+.blur-background {
+  filter: blur(8px);
 }
 
 .new-playlist {
@@ -67,7 +67,7 @@ label {
 }
 
 input,
-input:focus {
+.playlist-placeholder:focus {
   background-color: rgba(211, 211, 211, 0.3);
   color: var(--clr-neutral-900);
   border: none;
@@ -99,9 +99,12 @@ li {
   font-size: var(--fs-400);
   display: flex;
   align-items: center;
+  /* margin-left: 5rem; */
+  position: relative;
+  left: 8.8rem;
 }
 
-li::before {
+.playlist-name li::before {
   content: "";
   display: inline-block;
   width: 2em;
@@ -109,8 +112,25 @@ li::before {
   background-image: url("../../Images/logo.png");
   background-size: contain;
   background-repeat: no-repeat;
-  margin-right: 2rem;
+  margin: 0 2rem;
 }
+
+li.song-display::before {
+  background-image: none;
+}
+
+li.song-display {
+  font-size: var(--fs-200);
+  margin-left: 7rem;
+}
+
+.song-display {
+  margin-bottom: 1rem;
+}
+
+/* li.song-display img {
+  margin-right: 20px;
+} */
 
 .edit-name {
   display: inline-block;
@@ -122,9 +142,17 @@ li::before {
   cursor: pointer;
 }
 
+.playlist-display {
+  /* width: 60%; */
+  display: flex;
+}
+
 .playlist-name {
   font-size: var(--fs-400);
-  text-align: left;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
 }
 
 .delete-playlist {
@@ -132,7 +160,23 @@ li::before {
   width: 1.5rem;
   height: 1.5rem;
   background-size: contain;
-  margin-left: 2rem;
+  margin-left: 18rem;
   background-image: url("../../Images/pink bin.png");
   cursor: pointer;
 }
+
+.remove-song {
+  display: inline-block;
+  width: 1.5rem;
+  height: 1.5rem;
+  background-size: contain;
+  margin-left: 10rem;
+  background-image: url("../../Images/pink bin 2.png");
+  cursor: pointer;
+}
+
+/* .playlist-display {
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
+} */

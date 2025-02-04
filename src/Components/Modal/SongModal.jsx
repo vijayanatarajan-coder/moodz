@@ -1,47 +1,33 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useCallback, useEffect } from "react";
+import { useSearch } from "../Search/SearchContext";
 import ModalDOM from "./ModalDOM";
 import EditPlaylist from "../EditPlaylist/EditPlaylist";
 import "./SongModal.css";
 
-const SongModal = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
+function SongModal() {
+  const {
+    isModalOpen,
+    closeModal,
+    selectedSong,
+    existingPlaylists,
+    updatePlaylist,
+    deletePlaylist,
+    addNewPlaylist,
+    addSongToPlaylist,
+    // playlist,
+  } = useSearch();
+  const [selectedPlaylist, setSelectedPlaylist] = useState("");
   const [newPlaylistInput, setNewPlaylistInput] = useState(false);
   const [inputValue, setInputValue] = useState("");
-  const [existingPlaylists, setExistingPlaylists] = useState([]);
 
   useEffect(() => {
-    const storedPlaylists =
-      JSON.parse(localStorage.getItem("existingPlaylists")) || [];
-    setExistingPlaylists(storedPlaylists);
-  }, []);
-
-  useEffect(() => {
-    localStorage.setItem(
-      "existingPlaylists",
-      JSON.stringify(existingPlaylists)
-    );
-  }, [existingPlaylists]);
-
-  const openModal = () => {
-    setIsModalOpen(true);
-  };
-
-  const closeModal = useCallback(() => {
-    setIsModalOpen(false);
-    setNewPlaylistInput(false);
-    if (inputValue.trim() !== "") {
-      setExistingPlaylists((prev) => {
-        const updatedPlaylists = [...prev, inputValue];
-
-        localStorage.setItem(
-          "existingPlaylists",
-          JSON.stringify(updatedPlaylists)
-        );
-        return updatedPlaylists;
-      });
+    const mainContent = document.getElementById("main-content");
+    if (isModalOpen) {
+      mainContent.classList.add("blur-background");
+    } else {
+      mainContent.classList.remove("blur-background");
     }
-    setInputValue("");
-  }, [inputValue]);
+  }, [isModalOpen]);
 
   const toggleNewPlaylistInput = () => {
     setNewPlaylistInput(!newPlaylistInput);
@@ -51,27 +37,47 @@ const SongModal = () => {
     setInputValue(e.target.value);
   };
 
-  const updatePlaylist = useCallback((index, newText) => {
-    setExistingPlaylists((prev) => {
-      const updatedPlaylists = prev.map((item, i) =>
-        i === index ? newText : item
-      );
-      localStorage.setItem(
-        "existingPlaylists",
-        JSON.stringify(updatedPlaylists)
-      );
-      return updatedPlaylists;
-    });
-  }, []);
+  const handleCloseModal = useCallback(() => {
+    const handleSaveToPlaylist = () => {
+      if (selectedSong && selectedPlaylist) {
+        addSongToPlaylist(selectedPlaylist, selectedSong);
+        closeModal();
+      }
+    };
 
-  const deletePlaylist = useCallback((index) => {
-    setExistingPlaylists((prev) => prev.filter((_, i) => i !== index));
-  }, []);
+    const handleCreateNewPlaylist = () => {
+      if (inputValue.trim() !== "" && selectedSong) {
+        const newPlaylistName = inputValue.trim();
+        addNewPlaylist(newPlaylistName);
+        addSongToPlaylist(newPlaylistName, selectedSong);
+      }
+    };
+
+    if (newPlaylistInput && inputValue.trim() !== "") {
+      handleCreateNewPlaylist();
+    } else if (selectedPlaylist) {
+      handleSaveToPlaylist();
+    }
+    closeModal();
+    setNewPlaylistInput(false);
+    setInputValue("");
+    setSelectedPlaylist("");
+  }, [
+    selectedSong,
+    selectedPlaylist,
+    inputValue,
+    newPlaylistInput,
+    addSongToPlaylist,
+    addNewPlaylist,
+    closeModal,
+    setNewPlaylistInput,
+    setInputValue,
+    setSelectedPlaylist,
+  ]);
 
   return (
-    <div className={`app ${isModalOpen ? "blurred" : ""}`}>
-      <button onClick={openModal}>+</button>
-      <ModalDOM isOpen={isModalOpen} onClose={closeModal}>
+    <>
+      <ModalDOM isOpen={isModalOpen} onClose={handleCloseModal}>
         <p>Add to existing playlist</p>
         <hr />
         {existingPlaylists.map((playlist, index) => (
@@ -81,6 +87,8 @@ const SongModal = () => {
               id={`playlist-${index}`}
               name="playlistOption"
               value={playlist}
+              onChange={() => setSelectedPlaylist(playlist)}
+              checked={selectedPlaylist === playlist}
             />
             <label htmlFor={`playlist-${index}`}>{playlist}</label>
           </div>
@@ -97,6 +105,7 @@ const SongModal = () => {
             />
           </div>
         )}
+        <button onClick={handleCloseModal}>SAVE TO PLAYLIST</button>
       </ModalDOM>
       <div>
         <ul>
@@ -110,8 +119,8 @@ const SongModal = () => {
           ))}
         </ul>
       </div>
-    </div>
+    </>
   );
-};
+}
 
 export default SongModal;
