@@ -97,6 +97,11 @@ export function SearchProvider({ children }) {
     setSelectedSong(null);
   }, []);
 
+  const clearSearchResults = useCallback(() => {
+    setSearchInput("");
+    setResults([]);
+  }, []);
+
   const updatePlaylist = useCallback((index, newText) => {
     setExistingPlaylists((prev) => {
       const updatedPlaylists = prev.map((item, i) =>
@@ -151,6 +156,7 @@ export function SearchProvider({ children }) {
         playlists, //NEW
         getPlaylistSongs,
         removeSongFromPlaylist,
+        clearSearchResults,
       }}
     >
       {children}
