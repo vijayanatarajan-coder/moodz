@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from "react";
+import React, { useState, useCallback, useEffect } from "react";
 import { useSearch } from "../Search/SearchContext";
 import ModalDOM from "./ModalDOM";
 import EditPlaylist from "../EditPlaylist/EditPlaylist";
@@ -103,7 +103,6 @@ function SongModal() {
               value={inputValue}
               onChange={handleInputChange}
             />
-            <button onClick={handleSaveToPlaylist}>SAVE TO PLAYLIST</button>
           </div>
         )}
         <button onClick={handleCloseModal}>SAVE TO PLAYLIST</button>

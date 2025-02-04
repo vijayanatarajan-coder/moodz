@@ -32,7 +32,7 @@ function SearchBar() {
             <img
               className="albumImg"
               src={result.trackImg}
-              style={{ width: "70px", height: "70px", margin: "4px" }}
+              style={{ width: "60px", height: "60px", margin: "4px" }}
               alt="Album cover"
             />
             <p className="trackItem">{result.trackName} - </p>
