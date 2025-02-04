@@ -16,7 +16,7 @@ const Home = () => {
         <h2 className="h2 centerText">Check out our curated playlists<br/>or put together your own!</h2>
         <div id="buttonsContainer">
           <Button text="Discover" to="/Discover" />
-          <Button text="Create" to="/Create" />
+          <Button text="Create" to="/MyPlayLists" />
         </div>
       </div>
     </div>
