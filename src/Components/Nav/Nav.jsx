@@ -6,7 +6,6 @@ const Nav = () => {
   const location = useLocation()
   const activeLink = location.pathname
 
-  let class = ''
 
   const getClassName = (path) => {
     if (activeLink === path) {
