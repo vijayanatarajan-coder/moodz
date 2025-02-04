@@ -42,12 +42,11 @@ body {
 }
 
 .search-results {
-  background-color: #ffffff;
+  background-color: white;
   color: #000000;
-  /* margin-top: 1rem; */
   margin: 2rem;
   width: 60%;
-  height: 15rem;
+  height: 20%;
   border: none;
   border-radius: 30px;
   position: relative;
@@ -56,14 +55,39 @@ body {
 .search-items {
   display: flex;
   flex-direction: row;
+  align-items: start;
+  margin-top: 1.2rem;
+  margin-bottom: 1.2rem;
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
+}
+
+.albumImg {
+}
+
+.trackItem {
+  color: #000000;
+  margin-top: 1.5rem;
+  margin-left: 0.5rem;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.artistItem {
+  color: #000000;
+  margin-top: 1.5rem;
+  margin-left: 0.3rem;
+  font-size: 1rem;
 }
 
 .plus-button {
   display: inline-block;
   width: 1.5rem;
   height: 1.5rem;
-  background-size: contain;
-  margin-left: 2rem;
+  margin-top: 1.2rem;
+  margin-left: 45%;
   background-image: url("../../Images/Plus.png");
+  background-repeat: no-repeat;
+  background-size: contain;
   cursor: pointer;
 }
