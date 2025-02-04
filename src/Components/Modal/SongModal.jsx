@@ -14,20 +14,20 @@ function SongModal() {
     deletePlaylist,
     addNewPlaylist,
     addSongToPlaylist,
-    playlist,
+    // playlist,
   } = useSearch();
-
   const [selectedPlaylist, setSelectedPlaylist] = useState("");
-
-  const handleSaveToPlaylist = () => {
-    if (selectedSong && selectedPlaylist) {
-      addSongToPlaylist(selectedPlaylist, selectedSong);
-      closeModal();
-    }
-  };
-
   const [newPlaylistInput, setNewPlaylistInput] = useState(false);
   const [inputValue, setInputValue] = useState("");
+
+  useEffect(() => {
+    const mainContent = document.getElementById("main-content");
+    if (isModalOpen) {
+      mainContent.classList.add("blur-background");
+    } else {
+      mainContent.classList.remove("blur-background");
+    }
+  }, [isModalOpen]);
 
   const toggleNewPlaylistInput = () => {
     setNewPlaylistInput(!newPlaylistInput);
@@ -38,13 +38,42 @@ function SongModal() {
   };
 
   const handleCloseModal = useCallback(() => {
-    if (inputValue.trim() !== "") {
-      addNewPlaylist(inputValue);
+    const handleSaveToPlaylist = () => {
+      if (selectedSong && selectedPlaylist) {
+        addSongToPlaylist(selectedPlaylist, selectedSong);
+        closeModal();
+      }
+    };
+
+    const handleCreateNewPlaylist = () => {
+      if (inputValue.trim() !== "" && selectedSong) {
+        const newPlaylistName = inputValue.trim();
+        addNewPlaylist(newPlaylistName);
+        addSongToPlaylist(newPlaylistName, selectedSong);
+      }
+    };
+
+    if (newPlaylistInput && inputValue.trim() !== "") {
+      handleCreateNewPlaylist();
+    } else if (selectedPlaylist) {
+      handleSaveToPlaylist();
     }
     closeModal();
     setNewPlaylistInput(false);
     setInputValue("");
-  }, [inputValue, addNewPlaylist, closeModal]);
+    setSelectedPlaylist("");
+  }, [
+    selectedSong,
+    selectedPlaylist,
+    inputValue,
+    newPlaylistInput,
+    addSongToPlaylist,
+    addNewPlaylist,
+    closeModal,
+    setNewPlaylistInput,
+    setInputValue,
+    setSelectedPlaylist,
+  ]);
 
   return (
     <>
@@ -59,6 +88,7 @@ function SongModal() {
               name="playlistOption"
               value={playlist}
               onChange={() => setSelectedPlaylist(playlist)}
+              checked={selectedPlaylist === playlist}
             />
             <label htmlFor={`playlist-${index}`}>{playlist}</label>
           </div>
@@ -76,6 +106,7 @@ function SongModal() {
             <button onClick={handleSaveToPlaylist}>SAVE TO PLAYLIST</button>
           </div>
         )}
+        <button onClick={handleCloseModal}>SAVE TO PLAYLIST</button>
       </ModalDOM>
       <div>
         <ul>

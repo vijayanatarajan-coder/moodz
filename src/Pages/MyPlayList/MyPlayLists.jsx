@@ -31,19 +31,21 @@ import { SearchProvider } from "../../Components/Search/SearchContext";
 function MyPlayLists() {
   return (
     <main>
-      <div className="page-heading-container-myplaylist">
-        <h1 className="page-heading-myplaylist-title">MY PLAYLISTS</h1>
-        <p className="page-heading-myplaylist-paragraph">
-          Create a playlist that matches your current mood! Start by searching a
-          song, artist, or album below
-        </p>
-        <br />
-        <hr className="page-heading-divider-myplaylist" />
+      <div id="main-content">
+        <div className="page-heading-container-myplaylist">
+          <h1 className="page-heading-myplaylist-title">MY PLAYLISTS</h1>
+          <p className="page-heading-myplaylist-paragraph">
+            Create a playlist that matches your current mood! Start by searching
+            a song, artist, or album below
+          </p>
+          <br />
+          <hr className="page-heading-divider-myplaylist" />
+        </div>
+        <SearchProvider>
+          <SearchBar />
+          <SongModal />
+        </SearchProvider>
       </div>
-      <SearchProvider>
-        <SearchBar />
-        <SongModal />
-      </SearchProvider>
     </main>
   );
 }

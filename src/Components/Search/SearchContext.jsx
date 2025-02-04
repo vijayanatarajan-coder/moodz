@@ -37,6 +37,15 @@ export function SearchProvider({ children }) {
     [playlists]
   );
 
+  const removeSongFromPlaylist = useCallback((playlistName, songIndex) => {
+    setPlaylists((prevPlaylists) => ({
+      ...prevPlaylists,
+      [playlistName]: prevPlaylists[playlistName].filter(
+        (_, index) => index !== songIndex
+      ),
+    }));
+  }, []);
+
   useEffect(() => {
     const storedPlaylists =
       JSON.parse(localStorage.getItem("existingPlaylists")) || [];
@@ -141,6 +150,7 @@ export function SearchProvider({ children }) {
         addSongToPlaylist, //NEW
         playlists, //NEW
         getPlaylistSongs,
+        removeSongFromPlaylist,
       }}
     >
       {children}
