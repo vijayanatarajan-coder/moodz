@@ -15,8 +15,7 @@ const PlaylistPopup = ({ playlist, onClose }) => {
           onClick={onClose}
         />
       </div>
-      <hr />
-      <AlbumList playlist={playlist} /> {/* Use AlbumList */}
+      <AlbumList playlist={playlist} />
     </div>
   );
 };
