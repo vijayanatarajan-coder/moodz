@@ -6,6 +6,10 @@ const Nav = () => {
   const location = useLocation()
   const activeLink = location.pathname
 
+<<<<<<< HEAD
+
+=======
+>>>>>>> main
   const getClassName = (path) => {
     if (activeLink === path) {
       return 'navItem underline'
