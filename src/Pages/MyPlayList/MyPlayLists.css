@@ -31,7 +31,7 @@ body {
   color: var(--clr-neutral-900);
   font-weight: var(--fw-regular);
   text-align: center;
-  width: 60%;
+  width: 78%;
 }
 
 .page-heading-divider-myplaylist {
@@ -56,4 +56,62 @@ body {
   border: none;
   border-radius: 30px;
   position: relative;
+}
+
+/* _________________________________________TABLET */
+@media (max-width: 768px) {
+  .page-heading-myplaylist-title {
+    font-size: 1.3rem;
+    font-weight: var(--fw-h1-h2);
+    margin-bottom: 0.5rem;
+    font-family: var(--ff-regular);
+    color: var(--clr-neutral-200);
+  }
+
+  .page-heading-myplaylist-paragraph {
+    font-family: var(--ff-regular);
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    padding-bottom: 1.5rem;
+    color: var(--clr-neutral-900);
+    font-weight: var(--fw-regular);
+    text-align: center;
+    width: 78%;
+  }
+
+  .page-heading-divider-myplaylist {
+    border-top: 1px solid var(--clr-neutral-300);
+    width: 60%;
+    margin: 0 auto;
+    margin-bottom: 1.5rem;
+  }
+}
+
+/* _________________________________________MOBILE */
+@media (max-width: 480px) {
+  .page-heading-myplaylist-title {
+    font-size: 0.9rem;
+    font-weight: var(--fw-h1-h2);
+    margin-bottom: 0.5rem;
+    font-family: var(--ff-regular);
+    color: var(--clr-neutral-200);
+  }
+
+  .page-heading-myplaylist-paragraph {
+    font-family: var(--ff-regular);
+    font-size: 0.7rem;
+    margin-bottom: 0.2rem;
+    padding-bottom: 0.4rem;
+    color: var(--clr-neutral-900);
+    font-weight: var(--fw-regular);
+    text-align: center;
+    width: 95%;
+  }
+
+  .page-heading-divider-myplaylist {
+    border-top: 1px solid var(--clr-neutral-100);
+    width: 80%;
+    margin: 0 auto;
+    margin-bottom: 1rem;
+  }
 }

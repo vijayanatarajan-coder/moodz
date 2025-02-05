@@ -11,7 +11,7 @@ function SearchBar() {
     openModal,
     isResultVisible,
     setIsResultVisible,
-  } = useSearch(); //NEW
+  } = useSearch();
 
   useEffect(() => {
     // FETCH DATA
@@ -21,7 +21,7 @@ function SearchBar() {
     } else {
       setIsResultVisible(false); // HIDE RESULTS
     }
-  }, [searchInput, fetchData, setIsResultVisible]); //NEW
+  }, [searchInput, fetchData, setIsResultVisible]);
 
   const handleChange = (e) => {
     // HANDLE SEARCH INPUT
@@ -46,15 +46,11 @@ function SearchBar() {
         {/* DISPLAY: ALBUM COVER, SONG & ARTIST */}
         {results.map((result, index) => (
           <div key={index} className="search-items">
-            <img
-              className="albumImg"
-              src={result.trackImg}
-              style={{ width: "60px", height: "60px", margin: "4px" }}
-              alt="Album cover"
-            />
+            <img className="albumImg" src={result.trackImg} alt="Album cover" />
             <p className="artistItem">{result.artistName} - </p>
             <p className="trackItem">{result.trackName}</p>
             {/* ADD SONG & OPEN MODAL */}
+            <p className="empty-space"></p>
             <i
               key={index}
               role="button"
