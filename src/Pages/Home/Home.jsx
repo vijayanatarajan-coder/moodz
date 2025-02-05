@@ -1,5 +1,4 @@
 import React from "react";
-//import ScrollToTop from "../../Components/Healper/ScrollToTop/ScrollToTop";
 import Button from "../../Components/Button/Button";
 import "./Home.css";
 import Hero from "../../Components/Hero/Hero";
@@ -22,7 +21,6 @@ const Home = () => {
           <Button text="Create" to="/MyPlayLists" />
         </div>
       </div>
-      {/* <ScrollToTop /> */}
     </div>
   );
 };
