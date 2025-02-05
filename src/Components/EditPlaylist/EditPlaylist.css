@@ -111,18 +111,26 @@
     flex-wrap: wrap;
   }
 
+  .playlist-header::before {
+    width: 2em;
+    height: 2em;
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-right: 1rem;
+  }
+
   .playlist-item {
-    width: 80%;
+    width: 70%;
   }
 
   .playlist-name {
-    margin-bottom: 0.5rem;
-    font-size: var(--fs-300);
+    margin-bottom: 0.2rem;
+    font-size: 1rem;
   }
 
   .song-display {
     flex-wrap: wrap;
-    font-size: var(--fs-100);
+    font-size: 0.6rem;
   }
 
   .song-display img {
@@ -132,5 +140,16 @@
 
   .song-info {
     margin-bottom: 0.5rem;
+  }
+
+  .edit-name,
+  .delete-playlist {
+    width: 1em;
+    height: 1em;
+  }
+
+  .remove-song {
+    width: 1.7em;
+    height: 1.7em;
   }
 }

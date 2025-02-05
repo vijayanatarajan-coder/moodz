@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-// import { FiMenu, FiX } from "react-icons/fi"; // Import icons
+import { FiMenu, FiX } from "react-icons/fi"; // Import icons
 import "./Nav.css";
 
 const Nav = () => {
@@ -14,9 +14,9 @@ const Nav = () => {
   return (
     <nav className="nav">
       {/* Menu Button - Visible only on Mobile */}
-      {/* <button className="menu-button" onClick={() => setMenuOpen(!menuOpen)}>
+      <button className="menu-button" onClick={() => setMenuOpen(!menuOpen)}>
         {menuOpen ? <FiX size={24} /> : <FiMenu size={24} />}
-      </button> */}
+      </button>
 
       {/* Navigation Links - Show/Hide based on menuOpen */}
       <div className={`nav-links ${menuOpen ? "open" : ""}`}>
