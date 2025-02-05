@@ -39,3 +39,25 @@
   margin: 0 auto;
   margin-bottom: 1.5rem;
 }
+@media (max-width: 480px) {
+  .page-heading-title {
+    font-size: var(--fs-500);
+  }
+  .page-heading-paragraph {
+    font-size: var(--fs-200);
+  }
+  .page-heading-link {
+    font-size: var(--fs-200);
+  }
+}
+@media (max-width: 768px) {
+  .page-heading-title {
+    font-size: var(--fs-500);
+  }
+  .page-heading-paragraph {
+    font-size: var(--fs-300);
+  }
+  .page-heading-link {
+    font-size: var(--fs-300);
+  }
+}
