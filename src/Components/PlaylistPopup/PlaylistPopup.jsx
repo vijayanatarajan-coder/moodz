@@ -19,7 +19,6 @@ const PlaylistPopup = ({ playlist, onClose }) => {
           tabIndex="0"
           onClick={onClose}
         />{" "}
-        */}
       </div>
       <AlbumList playlist={playlist} />
     </section>
