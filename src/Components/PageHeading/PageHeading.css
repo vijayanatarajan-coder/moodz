@@ -35,29 +35,30 @@
 
 .page-heading-divider {
   border-top: 1px solid var(--clr-neutral-300);
-  width: 85%;
+  width: 80%;
   margin: 0 auto;
   margin-bottom: 1.5rem;
 }
-@media (max-width: 480px) {
-  .page-heading-title {
-    font-size: var(--fs-500);
-  }
-  .page-heading-paragraph {
-    font-size: var(--fs-200);
-  }
-  .page-heading-link {
-    font-size: var(--fs-200);
-  }
-}
+
 @media (max-width: 768px) {
   .page-heading-title {
-    font-size: var(--fs-500);
+    font-size: 1.3rem;
   }
   .page-heading-paragraph {
-    font-size: var(--fs-300);
+    font-size: 1.2rem;
   }
   .page-heading-link {
-    font-size: var(--fs-300);
+    font-size: 1.2rem;
+  }
+}
+@media (max-width: 480px) {
+  .page-heading-title {
+    font-size: 0.9rem;
+  }
+  .page-heading-paragraph {
+    font-size: 0.7rem;
+  }
+  .page-heading-link {
+    font-size: 0.7rem;
   }
 }

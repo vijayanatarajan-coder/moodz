@@ -12,10 +12,10 @@
   font-size: var(--fs-200);
   text-align: center;
 }
-.album-card li {
+li.album-card {
   display: flex;
+  justify-content: normal;
   align-items: center;
-  padding-left: 15px;
 }
 
 .album-img {
