@@ -15,35 +15,42 @@ export function SearchProvider({ children }) {
   const [selectedSong, setSelectedSong] = useState(null);
   const [existingPlaylists, setExistingPlaylists] = useState([]);
   const [playlists, setPlaylists] = useState({});
+  const [playlistOrder, setPlaylistOrder] = useState([]);
   const [isResultVisible, setIsResultVisible] = useState(false);
   const API_KEY = 523532;
 
-  const addSongToPlaylist = useCallback((playlistName, song) => {
-    setPlaylists((prevPlaylists) => ({
-      ...prevPlaylists,
-      [playlistName]: [...(prevPlaylists[playlistName] || []), song],
-    }));
-    setExistingPlaylists((prevPlaylists) => {
-      if (!prevPlaylists.includes(playlistName)) {
-        return [...prevPlaylists, playlistName];
-      }
-      return prevPlaylists;
+  const addSongToPlaylist = useCallback((playlistId, song) => {
+    setPlaylists((prev) => {
+      const updatedPlaylist = {
+        ...prev[playlistId],
+        songs: [...(prev[playlistId]?.songs || []), song],
+      };
+      return { ...prev, [playlistId]: updatedPlaylist };
     });
+
+    setExistingPlaylists((prev) =>
+      prev.map((playlist) =>
+        playlist.id === playlistId
+          ? { ...playlist, songCount: (playlist.songCount || 0) + 1 }
+          : playlist
+      )
+    );
   }, []);
 
   const getPlaylistSongs = useCallback(
-    (playlistName) => {
-      return playlists[playlistName] || [];
+    (playlistId) => {
+      return playlists[playlistId]?.songs || [];
     },
     [playlists]
   );
 
-  const removeSongFromPlaylist = useCallback((playlistName, songIndex) => {
-    setPlaylists((prevPlaylists) => ({
-      ...prevPlaylists,
-      [playlistName]: prevPlaylists[playlistName].filter(
-        (_, index) => index !== songIndex
-      ),
+  const removeSongFromPlaylist = useCallback((playlistId, songIndex) => {
+    setPlaylists((prev) => ({
+      ...prev,
+      [playlistId]: {
+        ...prev[playlistId],
+        songs: prev[playlistId].songs.filter((_, index) => index !== songIndex),
+      },
     }));
   }, []);
 
@@ -102,39 +109,45 @@ export function SearchProvider({ children }) {
     setIsResultVisible(false); // HIDE SEARCH RESULTS WHEN MODAL CLOSE
   };
 
-  const updatePlaylist = useCallback((index, newText) => {
-    setExistingPlaylists((prev) => {
-      const updatedPlaylists = prev.map((item, i) =>
-        i === index ? newText : item
-      );
-      localStorage.setItem(
-        "existingPlaylists",
-        JSON.stringify(updatedPlaylists)
-      );
-      return updatedPlaylists;
-    });
+  const updatePlaylist = useCallback((playlistId, newName) => {
+    setPlaylists((prev) => ({
+      ...prev,
+      [playlistId]: { ...prev[playlistId], name: newName },
+    }));
+    setExistingPlaylists((prev) =>
+      prev.map((playlist) =>
+        playlist.id === playlistId ? { ...playlist, name: newName } : playlist
+      )
+    );
   }, []);
 
-  const deletePlaylist = useCallback((index) => {
-    setExistingPlaylists((prev) => {
-      const updatedPlaylists = prev.filter((_, i) => i !== index);
-      localStorage.setItem(
-        "existingPlaylists",
-        JSON.stringify(updatedPlaylists)
-      );
-      return updatedPlaylists;
+  const deletePlaylist = useCallback((playlistId) => {
+    setPlaylists((prev) => {
+      const { [playlistId]: removed, ...rest } = prev;
+      return rest;
     });
+    setExistingPlaylists((prev) =>
+      prev.filter((playlist) => playlist.id !== playlistId)
+    );
   }, []);
 
-  const addNewPlaylist = useCallback((newPlaylist) => {
-    setExistingPlaylists((prev) => {
-      const updatedPlaylists = [...prev, newPlaylist];
-      localStorage.setItem(
-        "existingPlaylists",
-        JSON.stringify(updatedPlaylists)
-      );
-      return updatedPlaylists;
-    });
+  const addNewPlaylist = useCallback((newPlaylistName, song = null) => {
+    const newPlaylistId = Date.now().toString();
+    const newPlaylist = { name: newPlaylistName, songs: song ? [song] : [] };
+
+    setPlaylists((prev) => ({
+      ...prev,
+      [newPlaylistId]: newPlaylist,
+    }));
+
+    setExistingPlaylists((prev) => [
+      ...prev,
+      { id: newPlaylistId, name: newPlaylistName },
+    ]);
+
+    setPlaylistOrder((prev) => [...prev, newPlaylistId]);
+
+    return newPlaylistId;
   }, []);
 
   return (
@@ -154,6 +167,7 @@ export function SearchProvider({ children }) {
         addNewPlaylist,
         addSongToPlaylist,
         playlists,
+        playlistOrder,
         getPlaylistSongs,
         removeSongFromPlaylist,
         isResultVisible,

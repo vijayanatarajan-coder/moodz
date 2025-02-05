@@ -34,7 +34,6 @@ function SearchBar() {
       <input
         className="search-input"
         type="text"
-        placeholder="Search: artist - song"
         onChange={handleChange}
         value={searchInput}
       />

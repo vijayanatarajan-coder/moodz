@@ -1,0 +1,155 @@
+@import "../../Styles/DesignStyles.css";
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+
+.playlist-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.playlist-item {
+  width: 60%;
+  margin-bottom: 1rem;
+}
+
+.playlist-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.playlist-header input {
+  font-size: var(--fs-400);
+  width: 100%;
+}
+
+.playlist-header::before {
+  content: "";
+  display: inline-block;
+  width: 4em;
+  height: 4em;
+  background-image: url("../../Images/logo.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin-right: 1rem;
+}
+
+.playlist-name {
+  flex-grow: 1;
+  font-size: var(--fs-400);
+}
+
+.playlist-rename:focus {
+  font-size: var(--fs-400);
+  background-color: rgba(211, 211, 211, 0.3);
+  color: var(--clr-neutral-900);
+  border: none;
+  outline: none;
+}
+
+.edit-name,
+.delete-playlist {
+  width: 1.5rem;
+  height: 1.5rem;
+  background-size: contain;
+  cursor: pointer;
+  margin-left: 1rem;
+}
+
+.edit-name {
+  background-image: url("../../Images/pen 1.png");
+}
+
+.delete-playlist {
+  background-image: url("../../Images/pink bin.png");
+}
+
+.playlist-divider {
+  display: block;
+  width: 100%;
+  border: none;
+  border-top: 1px solid var(--clr-pink);
+  margin: 0 0 0.5rem;
+}
+
+.song-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.song-display {
+  display: flex;
+  align-items: center;
+  padding: 0 0 1.5rem;
+  font-size: var(--fs-200);
+}
+
+.song-display img {
+  width: 60px;
+  height: 60px;
+  margin: 4px;
+}
+
+.song-info {
+  flex-grow: 1;
+  padding-left: 1rem;
+}
+
+.remove-song {
+  width: 1.5rem;
+  height: 1.5rem;
+  background-size: contain;
+  background-image: url("../../Images/pink bin 2.png");
+  cursor: pointer;
+}
+
+@media (max-width: 480px) {
+  .playlist-header {
+    flex-wrap: wrap;
+  }
+
+  .playlist-header::before {
+    width: 2em;
+    height: 2em;
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-right: 1rem;
+  }
+
+  .playlist-item {
+    width: 70%;
+  }
+
+  .playlist-name {
+    margin-bottom: 0.2rem;
+    font-size: 1rem;
+  }
+
+  .song-display {
+    flex-wrap: wrap;
+    font-size: 0.6rem;
+  }
+
+  .song-display img {
+    width: 40px;
+    height: 40px;
+  }
+
+  .song-info {
+    margin-bottom: 0.5rem;
+  }
+
+  .edit-name,
+  .delete-playlist {
+    width: 1em;
+    height: 1em;
+  }
+
+  .remove-song {
+    width: 1.7em;
+    height: 1.7em;
+  }
+}

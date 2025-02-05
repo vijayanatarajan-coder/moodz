@@ -4,7 +4,10 @@ import ModalDOM from "./ModalDOM";
 import EditPlaylist from "../EditPlaylist/EditPlaylist";
 import "./SongModal.css";
 
+// component including all the song modal functionality, for both existing and new playlists
+
 function SongModal() {
+  // functions from search context
   const {
     isModalOpen,
     closeModal,
@@ -14,13 +17,14 @@ function SongModal() {
     deletePlaylist,
     addNewPlaylist,
     addSongToPlaylist,
-    hideSearchResults, //NEW
+    hideSearchResults,
   } = useSearch();
   const [selectedPlaylist, setSelectedPlaylist] = useState("");
   const [newPlaylistInput, setNewPlaylistInput] = useState(false);
   const [inputValue, setInputValue] = useState("");
 
   useEffect(() => {
+    // add blur to background when modal is triggered
     const mainContent = document.getElementById("main-content");
     if (isModalOpen) {
       mainContent.classList.add("blur-background");
@@ -38,18 +42,17 @@ function SongModal() {
   };
 
   const handleCloseModal = useCallback(() => {
+    // functionality to handle song being saved to either an existing playlist or a new one that is created
     const handleSaveToPlaylist = () => {
       if (selectedSong && selectedPlaylist) {
-        addSongToPlaylist(selectedPlaylist, selectedSong);
+        addSongToPlaylist(selectedPlaylist.id, selectedSong);
         closeModal();
       }
     };
 
     const handleCreateNewPlaylist = () => {
       if (inputValue.trim() !== "" && selectedSong) {
-        const newPlaylistName = inputValue.trim();
-        addNewPlaylist(newPlaylistName);
-        addSongToPlaylist(newPlaylistName, selectedSong);
+        addNewPlaylist(inputValue.trim(), selectedSong);
       }
     };
 
@@ -80,22 +83,26 @@ function SongModal() {
   return (
     <>
       <ModalDOM isOpen={isModalOpen} onClose={handleCloseModal}>
-        <p>Add to existing playlist</p>
-        <hr />
+        <p className="existing-playlist">Add to existing playlist</p>
+        <hr className="existing-playlist-divider" />
         {existingPlaylists.map((playlist, index) => (
           <div key={index}>
             <input
               type="radio"
               id={`playlist-${index}`}
-              name="playlistOption"
-              value={playlist}
+              className="playlist-option"
+              value={playlist.id}
               onChange={() => setSelectedPlaylist(playlist)}
               checked={selectedPlaylist === playlist}
             />
-            <label htmlFor={`playlist-${index}`}>{playlist}</label>
+            <label className="playlist-option" htmlFor={`playlist-${index}`}>
+              {playlist.name}
+            </label>
           </div>
         ))}
-        <button onClick={toggleNewPlaylistInput}>NEW PLAYLIST</button>
+        <button className="playlist-btn" onClick={toggleNewPlaylistInput}>
+          NEW PLAYLIST
+        </button>
         {newPlaylistInput && (
           <div className="new-playlist">
             <input
@@ -107,16 +114,19 @@ function SongModal() {
             />
           </div>
         )}
-        <button onClick={handleCloseModal}>SAVE TO PLAYLIST</button>
+        <button className="playlist-btn" onClick={handleCloseModal}>
+          SAVE TO PLAYLIST
+        </button>
       </ModalDOM>
       <div>
         <ul>
-          {existingPlaylists.map((playlist, index) => (
+          {existingPlaylists.map((playlist) => (
             <EditPlaylist
-              key={`${playlist}-${index}`}
-              initialText={playlist}
-              onUpdate={(newText) => updatePlaylist(index, newText)}
-              onDelete={() => deletePlaylist(index)}
+              key={playlist.id}
+              playlistId={playlist.id}
+              initialText={playlist.name}
+              onUpdate={(id, newName) => updatePlaylist(id, newName)}
+              onDelete={(id) => deletePlaylist(id)}
             />
           ))}
         </ul>
