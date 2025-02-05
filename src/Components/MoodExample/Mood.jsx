@@ -13,7 +13,7 @@ const Mood = () => {
           <br />
           need to <span className="focus">focus...</span>
         </h2>
-        <img src={working} alt="" width={"250px"} height={"250px"} />
+        <img src={working} alt="" />
       </div>
       {/* Section 3 */}
       <div className="homeSection alignCenter reverseInMobile">

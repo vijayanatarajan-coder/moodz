@@ -10,3 +10,11 @@
   cursor: pointer;
   border: none;
 }
+
+@media (max-width: 768px) {
+  .primaryButton {
+    font-size: var(--fs-100);
+    padding: 8px 30px;
+    border-radius: 30px;
+  }
+}

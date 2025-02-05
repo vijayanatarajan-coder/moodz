@@ -1,25 +1,44 @@
 .description {
-    color: var(--clr-text);
-    font-family: var(--ff-regular);
-    font-size: var(--fs-400);
-    font-style: normal;
-    font-weight: var(--fw-regular);
-    line-height: normal;
+  color: var(--clr-text);
+  font-family: var(--ff-regular);
+  font-size: var(--fs-400);
+  font-style: normal;
+  font-weight: var(--fw-regular);
+  line-height: normal;
 }
 .h2 {
-    font-size: var(--fs-500);
-    font-weight: var(--fw-h1-h2);
-    line-height: 1.4;
-    margin-bottom: 1rem;
-    color:var(--clr-text);
-    font-family: var(--ff-regular);
+  font-size: var(--fs-500);
+  font-weight: var(--fw-h1-h2);
+  line-height: 1.4;
+  margin-bottom: 1rem;
+  color: var(--clr-text);
+  font-family: var(--ff-regular);
+}
+
+.homeSection img {
+  width: 250px;
+  height: 250px;
 }
 
 @media (max-width: 768px) {
-    .reverseInMobile {
-        flex-direction: column-reverse;
-    }
-    .homeSection{
-        margin-bottom: 15%;
-    }
+  .reverseInMobile {
+    flex-direction: column-reverse;
+  }
+  .homeSection {
+    margin-bottom: 15%;
+  }
+
+  .h2 {
+    font-size: 0.9rem;
+  }
+
+  .homeSection img {
+    width: 150px;
+    height: 150px;
+  }
+
+  .description {
+    font-size: 0.7rem;
+    font-style: normal;
+  }
 }
