@@ -1,8 +1,9 @@
 .container {
   display: grid;
   gap: 20px;
-  padding: 3rem;
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
+  align-items: center;
+  justify-items: center;
 }
 
 .playlist-card-container {

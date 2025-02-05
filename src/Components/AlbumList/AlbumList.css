@@ -31,6 +31,9 @@
   margin: 0px;
   padding: 0px;
 }
+.album-list li {
+  left: 0px;
+}
 .album-artist h2 {
   margin: 0;
   padding: 5px;
