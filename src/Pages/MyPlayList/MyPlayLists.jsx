@@ -38,7 +38,6 @@ function MyPlayLists() {
             Create a playlist that matches your current mood! Start by searching
             a song, artist, or album below
           </p>
-          <br />
           <hr className="page-heading-divider-myplaylist" />
         </div>
         <SearchProvider>

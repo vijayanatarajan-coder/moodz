@@ -11,6 +11,7 @@
   font-family: var(--fw-regular-weight);
 }
 .playlist-card h2 {
+  font-size: 0.9rem;
   text-align: center;
   font-family: var(--fw-regular);
   font-weight: var(--fw-regular-weight);
@@ -20,6 +21,9 @@
     min-height: 320px;
     min-width: 250px;
   }
+  .playlist-card h2 {
+    font-size: 1.3rem;
+  }
 }
 @media (min-width: 1025px) {
   .playlist-card {
@@ -28,5 +32,6 @@
   }
   .playlist-card h2 {
     margin: 0px;
+    font-size: var(--fs-400);
   }
 }
