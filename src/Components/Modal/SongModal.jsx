@@ -14,7 +14,7 @@ function SongModal() {
     deletePlaylist,
     addNewPlaylist,
     addSongToPlaylist,
-    // playlist,
+    hideSearchResults, //NEW
   } = useSearch();
   const [selectedPlaylist, setSelectedPlaylist] = useState("");
   const [newPlaylistInput, setNewPlaylistInput] = useState(false);
@@ -59,6 +59,7 @@ function SongModal() {
       handleSaveToPlaylist();
     }
     closeModal();
+    hideSearchResults(); //NEW
     setNewPlaylistInput(false);
     setInputValue("");
     setSelectedPlaylist("");
@@ -73,6 +74,7 @@ function SongModal() {
     setNewPlaylistInput,
     setInputValue,
     setSelectedPlaylist,
+    hideSearchResults, //NEW
   ]);
 
   return (

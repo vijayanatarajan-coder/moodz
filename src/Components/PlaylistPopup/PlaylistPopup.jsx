@@ -13,12 +13,13 @@ const PlaylistPopup = ({ playlist, onClose }) => {
     >
       <div className="album-header">
         <h2>{playlist}</h2>
-        <RxCross1
+        {/* <RxCross1
           className="close-popup"
           role="button"
           tabIndex="0"
           onClick={onClose}
         />{" "}
+        */}
       </div>
       <AlbumList playlist={playlist} />
     </section>

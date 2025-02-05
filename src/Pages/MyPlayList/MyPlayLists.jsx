@@ -45,6 +45,7 @@ function MyPlayLists() {
           <SearchBar />
           <SongModal />
         </SearchProvider>
+        <br />
       </div>
     </main>
   );

@@ -9,6 +9,7 @@ body {
 
 .search-prompt {
   color: var(--clr-focus);
+  font-size: 1rem;
 }
 
 .search-section {
@@ -29,7 +30,9 @@ body {
   position: relative;
   background-image: url("../../Images/search\ 1.png");
   background-repeat: no-repeat;
-  background-position: 2%;
+  background-position: 3%;
+  background-size: 23px;
+  padding-left: 50px;
 }
 
 .search-input:focus,
@@ -41,7 +44,12 @@ body {
   color: transparent;
 }
 
-.search-results {
+.search-results-hidden {
+  display: none;
+}
+
+.search-results-visible {
+  display: block;
   background-color: white;
   color: #000000;
   margin: 2rem;
@@ -56,21 +64,17 @@ body {
   display: flex;
   flex-direction: row;
   align-items: start;
+  justify-content: space-between;
   margin-top: 1.2rem;
   margin-bottom: 1.2rem;
   margin-left: 1.5rem;
   margin-right: 1.5rem;
 }
 
-/* .albumImg {
-} */
-
-.trackItem {
-  color: #000000;
-  margin-top: 1.5rem;
-  margin-left: 0.5rem;
-  font-weight: bold;
-  font-size: 1rem;
+.albumImg {
+  width: 60px;
+  height: 60px;
+  margin: 4px;
 }
 
 .artistItem {
@@ -78,6 +82,18 @@ body {
   margin-top: 1.5rem;
   margin-left: 0.3rem;
   font-size: 1rem;
+  font-weight: bold;
+}
+
+.trackItem {
+  color: #000000;
+  margin-top: 1.5rem;
+  margin-left: 0.5rem;
+  font-size: 1rem;
+}
+
+.empty-space {
+  flex-grow: 1;
 }
 
 .plus-button {
@@ -85,9 +101,124 @@ body {
   width: 1.5rem;
   height: 1.5rem;
   margin-top: 1.2rem;
-  margin-left: 45%;
   background-image: url("../../Images/Plus.png");
   background-repeat: no-repeat;
+  background-position: 4%;
   background-size: contain;
   cursor: pointer;
+}
+
+/* _________________________________TABLET */
+@media (max-width: 768px) {
+  .search-prompt {
+    font-size: 0.8rem;
+  }
+
+  .search-input {
+    width: 60%;
+    background-size: 20px;
+    background-position: 4%;
+    padding-left: 45px;
+  }
+
+  .search-input:focus,
+  .search-input::placeholder {
+    padding-left: 45px;
+  }
+
+  .search-items {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    margin-left: 1.2rem;
+    margin-right: 1.2rem;
+  }
+
+  .search-results-visible {
+    width: 60%;
+  }
+
+  .albumImg {
+    width: 48px;
+    height: 48px;
+    margin: 4px;
+  }
+
+  .artistItem {
+    margin-top: 1.2rem;
+    margin-left: 0.3rem;
+    font-size: 0.8rem;
+  }
+
+  .trackItem {
+    margin-top: 1.2rem;
+    margin-left: 0.5rem;
+    font-size: 0.8rem;
+  }
+
+  .plus-button {
+    display: inline-block;
+    width: 1.2rem;
+    height: 1.2rem;
+    margin-top: 1rem;
+  }
+}
+
+/* _________________________________MOBILE */
+@media (max-width: 480px) {
+  .search-prompt {
+    font-size: 0.6rem;
+  }
+
+  .search-input {
+    margin: 1rem;
+    width: 70%;
+    height: 2rem;
+    border-radius: 30px;
+    position: relative;
+    font-size: 0.6rem;
+    background-size: 17px;
+    background-position: 4%;
+    padding-left: 35px;
+  }
+
+  .search-input:focus,
+  .search-input::placeholder {
+    padding-left: 35px;
+  }
+
+  .search-items {
+    margin-top: 0.7rem;
+    margin-bottom: 0.7rem;
+    margin-left: 0.9rem;
+    margin-right: 0.9rem;
+  }
+
+  .search-results-visible {
+    width: 80%;
+  }
+
+  .albumImg {
+    width: 40px;
+    height: 40px;
+    margin: 4px;
+  }
+
+  .artistItem {
+    margin-top: 0.9rem;
+    margin-left: 0.1rem;
+    font-size: 0.6rem;
+  }
+
+  .trackItem {
+    margin-top: 0.9rem;
+    margin-left: 0.2rem;
+    font-size: 0.6rem;
+  }
+
+  .plus-button {
+    display: inline-block;
+    width: 1rem;
+    height: 1rem;
+    margin-top: 0.7rem;
+  }
 }
